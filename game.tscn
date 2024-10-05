@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://c7aewllcq403s"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_gr70y"]
+[ext_resource type="PackedScene" uid="uid://cjpwoubh2vryh" path="res://background/background.tscn" id="1_xer5j"]
+[ext_resource type="PackedScene" uid="uid://lw6tg2465tak" path="res://player/player.tscn" id="3_jiebm"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="4_1fok5"]
+[ext_resource type="Script" path="res://ground/floor.gd" id="5_x2dyu"]
+[ext_resource type="PackedScene" uid="uid://cv8l8rqp3pe7s" path="res://hud/hud.tscn" id="6_vqw0u"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://hud/fonts/retro.ttf" id="7_f2i2f"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xbqq3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igwqs"]
+bg_color = Color(0, 0.682353, 0.713726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a72ow"]
+bg_color = Color(0.6, 0.52549, 0.937255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anyl2"]
+bg_color = Color(0.172549, 0.564706, 0, 1)
+
+[node name="Game" type="Node"]
+script = ExtResource("1_gr70y")
+
+[node name="Background" parent="." instance=ExtResource("1_xer5j")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(576, 324)
+limit_left = 0
+script = ExtResource("4_1fok5")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(0, 552)
+script = ExtResource("5_x2dyu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, 8)
+shape = SubResource("WorldBoundaryShape2D_xbqq3")
+
+[node name="Obstacles" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Player" parent="." instance=ExtResource("3_jiebm")]
+position = Vector2(72, 494)
+
+[node name="HUD" parent="." instance=ExtResource("6_vqw0u")]
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="RestartButton" type="Button" parent="GameOver"]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.5
+offset_top = -25.5
+offset_right = 182.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_f2i2f")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_igwqs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a72ow")
+theme_override_styles/normal = SubResource("StyleBoxFlat_anyl2")
+text = "RESTART"

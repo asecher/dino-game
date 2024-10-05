@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv8l8rqp3pe7s"]
+
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://hud/fonts/retro.ttf" id="1_vhp8f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhvqx"]
+bg_color = Color(0, 0.682353, 0.713726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8j0y"]
+bg_color = Color(0.6, 0.52549, 0.937255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lo7ni"]
+bg_color = Color(0.172549, 0.564706, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 182.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("1_vhp8f")
+theme_override_font_sizes/font_size = 40
+text = "SCORE: "
+
+[node name="HighScoreLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -104.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_vhp8f")
+theme_override_font_sizes/font_size = 40
+text = "HIGH SCORE: "
+
+[node name="Jump" type="Button" parent="."]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+offset_right = 226.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_vhp8f")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_uhvqx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e8j0y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lo7ni")
+text = "JUMP"
+
+[node name="Duck" type="Button" parent="."]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -225.0
+offset_top = -51.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_vhp8f")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_uhvqx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e8j0y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lo7ni")
+text = "DUCK
+"
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.5
+offset_top = -25.5
+offset_right = 182.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_vhp8f")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_uhvqx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e8j0y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lo7ni")
+text = "START"
