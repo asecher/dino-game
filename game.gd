@@ -18,7 +18,7 @@ const FLY_HEIGHTS := [200, 390]
 @export var acceleration := 12.0
 @export var max_speed := 1150.0
 
-var game_is_running = false
+var game_is_running = true
 var speed := start_speed
 var score := 0
 var high_score := 0
@@ -39,6 +39,8 @@ var highscore_label: Label
 func _ready() -> void:
 	start_button = hud.get_node("StartButton")
 	start_button.pressed.connect(start_game)
+	if game_is_running:
+		start_button.hide()
 	
 	restart_button = game_over_hud.get_node("RestartButton")
 	restart_button.pressed.connect(new_game)
@@ -113,7 +115,7 @@ func generate_obstacles() -> void:
 				#generate flying obstacles
 				var flying_type = FLYING_TYPES[randi() % FLYING_TYPES.size()]
 				var obs = flying_type.instantiate()
-				var obs_x: int = SPAWN_DISTANCE + player.position.x + 100
+				var obs_x: int = SPAWN_DISTANCE + player.position.x + 100 + randi_range(300, 900)
 				var obs_y: int = FLY_HEIGHTS[randi() % FLY_HEIGHTS.size()]
 				obs.position = Vector2(obs_x, obs_y)
 				obs.body_entered.connect(hit_obs)

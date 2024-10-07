@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7aewllcq403s"]
+[gd_scene load_steps=13 format=3 uid="uid://c7aewllcq403s"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_gr70y"]
 [ext_resource type="PackedScene" uid="uid://cjpwoubh2vryh" path="res://background/background.tscn" id="1_xer5j"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://ground/floor.gd" id="5_x2dyu"]
 [ext_resource type="PackedScene" uid="uid://cv8l8rqp3pe7s" path="res://hud/hud.tscn" id="6_vqw0u"]
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://hud/fonts/retro.ttf" id="7_f2i2f"]
+[ext_resource type="PackedScene" uid="uid://cghgo1xumesyy" path="res://player/player_cat.tscn" id="7_sf3sx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xbqq3"]
 
@@ -45,6 +46,10 @@ unique_name_in_owner = true
 position = Vector2(72, 494)
 
 [node name="HUD" parent="." instance=ExtResource("6_vqw0u")]
+
+[node name="__Player" parent="." instance=ExtResource("7_sf3sx")]
+visible = false
+position = Vector2(72, 493.36)
 
 [node name="GameOver" type="CanvasLayer" parent="."]
 visible = false

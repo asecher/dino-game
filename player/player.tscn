@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://lw6tg2465tak"]
+[gd_scene load_steps=24 format=3 uid="uid://lw6tg2465tak"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_5wyqx"]
 [ext_resource type="Texture2D" uid="uid://byxwhg034k0rw" path="res://player/dino.png" id="1_l7d4e"]
@@ -147,7 +147,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dad05"]
-size = Vector2(10.125, 14)
+size = Vector2(10.125, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftvm3"]
+size = Vector2(9, 12.875)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(8, 8)
@@ -156,17 +159,18 @@ script = ExtResource("1_5wyqx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_3fgtv")
-animation = &"run"
+animation = &"duck"
 autoplay = "idle"
 
 [node name="RunCollisionBox" type="CollisionShape2D" parent="."]
-position = Vector2(-0.9375, 0)
-shape = SubResource("RectangleShape2D_dad05")
-
-[node name="DuckCollisionBox" type="CollisionShape2D" parent="."]
-position = Vector2(-0.875, 1)
+position = Vector2(-0.75, 0)
 shape = SubResource("RectangleShape2D_dad05")
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_4rncu")
 bus = &"SFX"
+
+[node name="DuckCollisionBox" type="CollisionShape2D" parent="."]
+position = Vector2(1.625, 0.5625)
+shape = SubResource("RectangleShape2D_ftvm3")
+debug_color = Color(0.815799, 0.298966, 0.700441, 0.42)
